@@ -62,8 +62,8 @@ export default class Snow extends Component {
         }
 
         particles.forEach(particle => {
-            particle.x = particle.x + Math.ceil(particle.speed.x * delta);
-            particle.y = particle.y + Math.ceil(particle.speed.y * delta);
+            particle.x = particle.x + Math.ceil(particle.velocity.x * delta);
+            particle.y = particle.y + Math.ceil(particle.velocity.y * delta);
         });
 
         return particles.filter(particle => !Snow.outsideViewport(particle, canvas.width, canvas.height));
@@ -74,7 +74,7 @@ export default class Snow extends Component {
             x: Math.random() * canvasWidth,
             y: -2,
             r: Math.random() * PARTICLE_MAX_SIZE,
-            speed: {
+            velocity: {
                 x: Math.random() * (PARTICLE_BASE_SPEED/2),
                 y: Math.random() * PARTICLE_BASE_SPEED + 1
             }
