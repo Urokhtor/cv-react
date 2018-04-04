@@ -1,6 +1,7 @@
 $colour-primary: rgba(51, 59, 80, 1);
 $colour-primary-text: #fff;
 
+@import "flex";
 @import url(https://fonts.googleapis.com/css?family=Roboto+Web:300,400,900);
 
 body {
@@ -14,31 +15,6 @@ body {
 
 body::-webkit-scrollbar {
   display: none;  // Safari and Chrome
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 100vw;
-}
-
-.flex-container {
-  display: flex;
-}
-
-.flex-start {
-  @extend .flex-container;
-  justify-content: flex-start;
-}
-
-.flex-center {
-  @extend .flex-container;
-  align-items: center;
-  justify-content: center;
-}
-
-.flex-end {
-  @extend .flex-container;
-  justify-content: flex-end;
 }
 
 .parallax {
