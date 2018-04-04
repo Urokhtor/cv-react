@@ -3,7 +3,7 @@ import './Snow.scss';
 
 const UPDATE_INTERVAL = 33;
 const MAX_PARTICLES = 180;
-const PARTICLE_BASE_SPEED = 2;
+const PARTICLE_BASE_SPEED = 10;
 const PARTICLE_MAX_SIZE = 3;
 
 /**
@@ -18,7 +18,8 @@ export default class Snow extends Component {
         this.state = {
             interval: null,
             context: null,
-            particles: []
+            particles: [],
+            lastTime: Date.now()
         };
     }
 
@@ -39,15 +40,18 @@ export default class Snow extends Component {
     }
 
     loop() {
-        let livingParticles = Snow.update(this.state.context, this.state.particles);
+        let currentTime = Date.now();
+        let newDelta = currentTime - this.state.lastTime;
+        let livingParticles = Snow.update(this.state.context, this.state.particles, newDelta/100);
         Snow.render(this.state.context, livingParticles);
 
         this.setState({
-            particles: livingParticles
+            particles: livingParticles,
+            lastTime : currentTime
         })
     }
 
-    static update(context, particles) {
+    static update(context, particles, delta) {
         let canvas = context.canvas;
 
         canvas.width = canvas.clientWidth;
@@ -58,8 +62,8 @@ export default class Snow extends Component {
         }
 
         particles.forEach(particle => {
-            particle.x = particle.x + particle.speed.x;
-            particle.y = particle.y + particle.speed.y;
+            particle.x = particle.x + Math.ceil(particle.speed.x * delta);
+            particle.y = particle.y + Math.ceil(particle.speed.y * delta);
         });
 
         return particles.filter(particle => !Snow.outsideViewport(particle, canvas.width, canvas.height));
@@ -93,6 +97,7 @@ export default class Snow extends Component {
             context.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2, true);
         });
 
+        context.closePath();
         context.fill();
     }
 
