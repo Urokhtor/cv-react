@@ -2,9 +2,9 @@
 
 .experience-container {
   @extend .flex-center;
+  @extend .parallax;
 
-  background: url(../../images/background-2.jpg) no-repeat center;
-  background-size: cover;
+  background-image: url(../../images/background-2.jpg);
 
   height: 100vh;
 }

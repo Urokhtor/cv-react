@@ -5,7 +5,8 @@
 }
 
 .background-container {
-  background: url(../../images/background-1.jpg) no-repeat center;
-  background-size: cover;
+  @extend .parallax;
+  background-image: url(../../images/background-1.jpg);
   height: 100vh;
+
 }

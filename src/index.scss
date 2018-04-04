@@ -31,3 +31,8 @@ body::-webkit-scrollbar {
   @extend .flex-container;
   justify-content: flex-end;
 }
+
+.parallax {
+  background: no-repeat fixed center;
+  background-size: cover;
+}
