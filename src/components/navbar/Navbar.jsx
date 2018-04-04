@@ -8,7 +8,7 @@ export default class Navbar extends Component {
         super(props);
     }
 
-    onClick(element) {
+    static onClick(element) {
         Scroll.toElement(document.querySelector(element));
     }
 
@@ -16,10 +16,10 @@ export default class Navbar extends Component {
         return (
             <nav style={this.props.style} className={"navbar-container"}>
                 <div className="navbar-spaced flex-end">
-                    <div onClick={() => this.onClick('.home-page')}>Home</div>
-                    <div onClick={() => this.onClick('.about-page')}>About</div>
-                    <div onClick={() => this.onClick('.experience-page')}>Experience</div>
-                    <div onClick={() => this.onClick('.contact-page')}>Contact</div>
+                    <div onClick={() => Navbar.onClick('.home-page')}>Home</div>
+                    <div onClick={() => Navbar.onClick('.about-page')}>About</div>
+                    <div onClick={() => Navbar.onClick('.experience-page')}>Experience</div>
+                    <div onClick={() => Navbar.onClick('.contact-page')}>Contact</div>
                 </div>
             </nav>
         )
