@@ -1,0 +1,11 @@
+@import "../../index";
+
+.home-container {
+  @extend .flex-center;
+}
+
+.background-container {
+  background: url(../../images/background-1.jpg) no-repeat center;
+  background-size: cover;
+  height: 100vh;
+}

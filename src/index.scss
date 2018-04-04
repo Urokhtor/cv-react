@@ -1,3 +1,33 @@
-h1 {
-  font-size: 100px;
+body {
+  margin: 0;
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+}
+
+body::-webkit-scrollbar {
+  display: none;  // Safari and Chrome
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 100vw;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-start {
+  @extend .flex-container;
+  justify-content: flex-start;
+}
+
+.flex-center {
+  @extend .flex-container;
+  justify-content: center;
+}
+
+.flex-end {
+  @extend .flex-container;
+  justify-content: flex-end;
 }
