@@ -1,8 +1,8 @@
-@import "../../index";
+@import "../../styles/index";
 
 .footer-container {
   @extend .flex-center;
   height: 50px;
 
-  background-color: bisque;
+  background-color: $colour-primary;
 }

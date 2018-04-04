@@ -1,7 +1,15 @@
+$colour-primary: rgba(51, 59, 80, 1);
+$colour-primary-text: #fff;
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Web:300,400,900);
+
 body {
   margin: 0;
   -ms-overflow-style: none;  // IE 10+
   overflow: -moz-scrollbars-none;  // Firefox
+
+  color: $colour-primary-text;
+  font-family: Roboto, sans-serif;
 }
 
 body::-webkit-scrollbar {
