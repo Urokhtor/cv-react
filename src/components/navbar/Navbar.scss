@@ -16,4 +16,8 @@
 
 .navbar-spaced > div {
   margin: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
