@@ -16,6 +16,7 @@ export default class Navbar extends Component {
         return (
             <nav style={this.props.style} className={"navbar-container"}>
                 <div className="navbar-spaced flex-end">
+                    <div onClick={() => this.onClick('.home-page')}>Home</div>
                     <div onClick={() => this.onClick('.about-page')}>About</div>
                     <div onClick={() => this.onClick('.experience-page')}>Experience</div>
                     <div onClick={() => this.onClick('.contact-page')}>Contact</div>

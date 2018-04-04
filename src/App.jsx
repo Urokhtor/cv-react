@@ -11,9 +11,8 @@ export default class App extends Component {
     render() {
         return (
             <div className="grid-container">
-                <Home
-                    navbar={<Navbar style={{height: "5vh"}}/>}
-                    style={{height: "95vh"}} />
+                <Navbar/>
+                <Home/>
                 <About/>
                 <Experience/>
                 <Contact/>

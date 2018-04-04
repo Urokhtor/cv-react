@@ -9,11 +9,8 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className={"home-page background-container"}>
-                {this.props.navbar}
-                <div style={this.props.style} className={"home-container"}>
-                    Home
-                </div>
+            <div className={"home-page home-container background-container"}>
+                Home
             </div>
         );
     }
