@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Navbar.scss';
+import Scroll from "../platform/Scroll";
 
 export default class Navbar extends Component {
 
@@ -7,13 +8,17 @@ export default class Navbar extends Component {
         super(props);
     }
 
+    onClick(element) {
+        Scroll.toElement(document.querySelector(element));
+    }
+
     render() {
         return (
             <nav style={this.props.style} className={"navbar-container"}>
                 <div className="navbar-spaced flex-end">
-                    <div>About</div>
-                    <div>Experience</div>
-                    <div>Contact</div>
+                    <div onClick={() => this.onClick('.about-page')}>About</div>
+                    <div onClick={() => this.onClick('.experience-page')}>Experience</div>
+                    <div onClick={() => this.onClick('.contact-page')}>Contact</div>
                 </div>
             </nav>
         )

@@ -5,7 +5,7 @@ export default class Experience extends Component {
 
     render() {
         return (
-            <div className={"experience-container"}>Experience</div>
+            <div className={"experience-page experience-container"}>Experience</div>
         );
     }
 }

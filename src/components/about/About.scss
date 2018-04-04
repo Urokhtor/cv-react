@@ -1,0 +1,9 @@
+@import "../../styles/index";
+
+.about-container {
+  @extend .flex-center;
+
+  background-color: cadetblue;
+
+  height: 100vh;
+}

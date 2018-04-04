@@ -8,7 +8,7 @@ export default class Contact extends Component {
         return (
             <div>
                 <Snow/>
-                <div className={"contact-container"}>Contact</div>
+                <div className={"contact-page contact-container"}>Contact</div>
             </div>
         );
     }
