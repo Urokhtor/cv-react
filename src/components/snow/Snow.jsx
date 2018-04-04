@@ -3,7 +3,7 @@ import './Snow.scss';
 
 const UPDATE_INTERVAL = 33;
 const MAX_PARTICLES = 180;
-const PARTICLE_BASE_SPEED = 10;
+const PARTICLE_BASE_SPEED = 5;
 const PARTICLE_MAX_SIZE = 3;
 
 /**
@@ -62,8 +62,8 @@ export default class Snow extends Component {
         }
 
         particles.forEach(particle => {
-            particle.x = particle.x + Math.ceil(particle.velocity.x * delta);
-            particle.y = particle.y + Math.ceil(particle.velocity.y * delta);
+            particle.x = particle.x + particle.velocity.x * delta;
+            particle.y = particle.y + particle.velocity.y * delta;
         });
 
         return particles.filter(particle => !Snow.outsideViewport(particle, canvas.width, canvas.height));
@@ -72,7 +72,7 @@ export default class Snow extends Component {
     static emit(canvasWidth) {
         return {
             x: Math.random() * canvasWidth,
-            y: -2,
+            y: 0,
             r: Math.random() * PARTICLE_MAX_SIZE,
             velocity: {
                 x: Math.random() * (PARTICLE_BASE_SPEED/2),
