@@ -58,7 +58,7 @@ export default class Snow extends Component {
         canvas.height = canvas.clientHeight;
 
         if (particles.length < MAX_PARTICLES) {
-            particles.push(Snow.emit(canvas.clientWidth, canvas.clientHeight))
+            particles.push(Snow.emit(canvas.clientWidth))
         }
 
         particles.forEach(particle => {
@@ -69,7 +69,7 @@ export default class Snow extends Component {
         return particles.filter(particle => !Snow.outsideViewport(particle, canvas.width, canvas.height));
     }
 
-    static emit(canvasWidth, canvasHeight) {
+    static emit(canvasWidth) {
         return {
             x: Math.random() * canvasWidth,
             y: -2,
