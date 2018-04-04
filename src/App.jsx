@@ -3,6 +3,7 @@ import Navbar from "./components/navbar/Navbar";
 import Home from "./components/home/Home";
 import Experience from "./components/experience/Experience";
 import Footer from "./components/footer/Footer";
+import Contact from "./components/contact/Contact";
 
 export default class App extends Component {
 
@@ -13,6 +14,7 @@ export default class App extends Component {
                     navbar={<Navbar style={{height: "5vh"}}/>}
                     style={{height: "95vh"}} />
                 <Experience/>
+                <Contact/>
                 <Footer/>
             </div>
         );
