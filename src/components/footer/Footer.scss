@@ -1,6 +1,7 @@
 @import "../../index";
 
 .footer-container {
+  @extend .flex-center;
   height: 50px;
 
   background-color: bisque;

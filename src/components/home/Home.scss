@@ -1,12 +1,12 @@
 @import "../../index";
 
-.home-container {
-  @extend .flex-center;
-}
-
 .background-container {
   @extend .parallax;
   background-image: url(../../images/background-1.jpg);
-  height: 100vh;
 
+  height: 100vh;
+}
+
+.home-container {
+  @extend .flex-center;
 }

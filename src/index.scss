@@ -24,6 +24,7 @@ body::-webkit-scrollbar {
 
 .flex-center {
   @extend .flex-container;
+  align-items: center;
   justify-content: center;
 }
 
