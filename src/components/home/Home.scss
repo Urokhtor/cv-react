@@ -8,4 +8,14 @@
 .home-container {
   @extend .flex-center;
   height: 100vh;
+
+  h1 {
+    font-size: 4rem;
+    -webkit-margin-after: 0.03rem;
+  }
+
+  p {
+    font-size: 2rem;
+    -webkit-margin-before: 0.03rem;
+  }
 }

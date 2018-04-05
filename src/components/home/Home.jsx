@@ -9,8 +9,9 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className={"home-page home-container background-container"}>
-                Home
+            <div className={"home-page home-container background-container flex-vertical"}>
+                <h1>Jere Teittinen</h1>
+                <p>Full stack developer and sim racer</p>
             </div>
         );
     }
