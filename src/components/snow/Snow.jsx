@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import './Snow.scss';
 
 const UPDATE_INTERVAL = 33;
@@ -28,7 +29,7 @@ export default class Snow extends Component {
         const context = canvas[0].getContext("2d");
 
         this.setState({
-            interval: setInterval(() => this.loop(this), UPDATE_INTERVAL),
+            interval: setInterval(() => this.loop(this), this.props.updateInterval),
             context: context
         })
     }
@@ -42,7 +43,7 @@ export default class Snow extends Component {
     loop() {
         let currentTime = Date.now();
         let newDelta = currentTime - this.state.lastTime;
-        let livingParticles = Snow.update(this.state.context, this.state.particles, newDelta/100);
+        let livingParticles = Snow.update(this.props, this.state.context, this.state.particles, newDelta/100);
         Snow.render(this.state.context, livingParticles);
 
         this.setState({
@@ -51,14 +52,14 @@ export default class Snow extends Component {
         })
     }
 
-    static update(context, particles, delta) {
+    static update(props, context, particles, delta) {
         let canvas = context.canvas;
 
         canvas.width = canvas.clientWidth;
         canvas.height = canvas.clientHeight;
 
-        if (particles.length < MAX_PARTICLES) {
-            particles.push(Snow.emit(canvas.clientWidth))
+        if (particles.length < props.maxParticles) {
+            particles.push(Snow.emit(props, canvas.clientWidth))
         }
 
         particles.forEach(particle => {
@@ -69,14 +70,14 @@ export default class Snow extends Component {
         return particles.filter(particle => !Snow.outsideViewport(particle, canvas.width, canvas.height));
     }
 
-    static emit(canvasWidth) {
+    static emit(props, canvasWidth) {
         return {
             x: Math.random() * canvasWidth,
             y: 0,
-            r: Math.random() * PARTICLE_MAX_SIZE,
+            r: Math.random() * props.particleMaxSize,
             velocity: {
-                x: Math.random() * (PARTICLE_BASE_SPEED/2),
-                y: Math.random() * PARTICLE_BASE_SPEED + 1
+                x: Math.random() * (props.particleBaseSpeed/2),
+                y: Math.random() * props.particleBaseSpeed + 1
             }
         }
     }
@@ -106,7 +107,7 @@ export default class Snow extends Component {
             margin: 0,
             padding: 0,
             pointerEvents: 'none',
-            position: 'absolute',
+            position: this.props.position,
             zIndex: 1,
             width: '100vw',
             height: '100vh'
@@ -119,3 +120,19 @@ export default class Snow extends Component {
         );
     }
 }
+
+Snow.propTypes = {
+    position: PropTypes.string,
+    updateInterval: PropTypes.number,
+    maxParticles: PropTypes.number,
+    particleBaseSpeed: PropTypes.number,
+    particleMaxSize: PropTypes.number
+};
+
+Snow.defaultProps = {
+    position: 'absolute',
+    updateInterval: UPDATE_INTERVAL,
+    maxParticles: MAX_PARTICLES,
+    particleBaseSpeed: PARTICLE_BASE_SPEED,
+    particleMaxSize: PARTICLE_MAX_SIZE
+};
