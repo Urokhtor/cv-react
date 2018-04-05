@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import './Snow.scss';
+import SnowEmitter from "./SnowEmitter";
 
 const UPDATE_INTERVAL = 33;
 const MAX_PARTICLES = 180;
@@ -20,7 +21,13 @@ export default class Snow extends Component {
             interval: null,
             context: null,
             particles: [],
-            lastTime: Date.now()
+            lastTime: Date.now(),
+            emitter: new SnowEmitter({
+                interval: 200,
+                maxParticles: this.props.maxParticles,
+                particleBaseSpeed: this.props.particleBaseSpeed,
+                particleMaxSize: this.props.particleMaxSize
+            })
         };
     }
 
@@ -43,6 +50,7 @@ export default class Snow extends Component {
     loop() {
         let currentTime = Date.now();
         let newDelta = currentTime - this.state.lastTime;
+        this.state.emitter.update(newDelta, this.state.particles, this.state.context.canvas.clientWidth);
         let livingParticles = Snow.update(this.props, this.state.context, this.state.particles, newDelta/100);
         Snow.render(this.state.context, livingParticles);
 
@@ -58,28 +66,12 @@ export default class Snow extends Component {
         canvas.width = canvas.clientWidth;
         canvas.height = canvas.clientHeight;
 
-        if (particles.length < props.maxParticles) {
-            particles.push(Snow.emit(props, canvas.clientWidth))
-        }
-
         particles.forEach(particle => {
             particle.x = particle.x + particle.velocity.x * delta;
             particle.y = particle.y + particle.velocity.y * delta;
         });
 
         return particles.filter(particle => !Snow.outsideViewport(particle, canvas.width, canvas.height));
-    }
-
-    static emit(props, canvasWidth) {
-        return {
-            x: Math.random() * canvasWidth,
-            y: 0,
-            r: Math.random() * props.particleMaxSize,
-            velocity: {
-                x: Math.random() * (props.particleBaseSpeed/2),
-                y: Math.random() * props.particleBaseSpeed + 1
-            }
-        }
     }
 
     static outsideViewport(particle, w, h) {
