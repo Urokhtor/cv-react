@@ -1,9 +1,22 @@
 @import "../../styles/index";
 
+.about-grid {
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  height: 100vh;
+  background-color: rgb(65, 72, 88);
+}
 .about-container {
   @extend .flex-center;
+}
 
-  background-color: rgb(65, 72, 88);
+h1, h2, p {
+  line-height: 1;
+  margin-top: 0.03rem;
+  margin-bottom: 0.03rem;
+}
 
-  height: 100vh;
+.about-blackstar {
+  color: #662483;
+  font-weight: bold;
 }

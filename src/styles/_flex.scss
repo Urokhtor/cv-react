@@ -23,3 +23,13 @@
   @extend .flex-container;
   justify-content: flex-end;
 }
+
+.flex-horizontal {
+  @extend .flex-container;
+  flex-direction: row;
+}
+
+.flex-vertical {
+  @extend .flex-container;
+  flex-direction: column;
+}
