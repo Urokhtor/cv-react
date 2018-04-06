@@ -7,34 +7,31 @@ export default class About extends Component {
         return (
             <div className={"about-page about-grid"}>
                 <div className={"about-container"}>
-                    <div className={"flex-vertical"}>
-                        <h1>Skills</h1>
-                        <p>- Broad Java programming experience</p>
-                        <p>- Spring Framework</p>
-                        <p>- React & Angular</p>
-                        <p>- Docker</p>
-                        <p>- Puppet</p>
-                        <p>- Python</p>
-                        <p>- Many years of server Linux experience</p>
+                    <div className={"about-text flex-vertical"}>
+                        <h1>About</h1>
+                        <p>Full stack developer who writes code mainly in Java.</p>
+                        <p>I have worked with <i>Spring Framework</i> and its various components for five years and use it like a Swiss army knife. Although
+                            I like to work in the backend, frontend code is not foreign to me either.</p>
+                        <p><i>Clean code</i> is becoming increasingly important for me as it not only makes code easier to
+                            read and understand, but also increases its maintainability.</p>
+                        <p>Racing in one form or another has been a life long passion to me and these days I'm a member of the
+                            simracing team <i>Black Star Racing</i>. It is a fun hobby that demands diligent training and steely concentration.
+                            Apart from that I like to study history, consume coffee and keep myself in shape with weightlifting and cycling.</p>
+                        <p>This site itself was built as sort of an exercise because I felt like doing some UI coding with React.</p>
                     </div>
                 </div>
-                <div className={"about-container flex-vertical"}>
-                    <div className={"flex-vertical"}>
-                        <h1>Personal info and hobbies</h1>
-                        <h2>I am [replace-me] years old, live in Joensuu and have a good sense of humour</h2>
-                        <h2>Simracing</h2>
-                        <p>- Member of <a target="_blank" href="replace-me" className="about-blackstar">Black
-                            Star Racing</a></p>
-                        <p>- Lots and lots of iRacing</p>
-                        <h2 className="text-break">Coding</h2>
-                        <p>- Always eager to learn something new</p>
-                        <p>- Interested in horizontal scaling and distributed systems</p>
-                        <p>- Good testing is important</p>
-                        <h2 className="text-break">Exercising</h2>
-                        <p>- Weightlifting</p>
-                        <p>- Cycling</p>
-                        <h2 className="text-break">3D printing</h2>
-                        <h2 className="text-break">Coffee</h2>
+                <div className={"about-container"}>
+                    <div className={"about-skills flex-vertical"}>
+                        <h1>Skills</h1>
+                        <ul>
+                            <li>Broad Java programming experience</li>
+                            <li>Spring Framework</li>
+                            <li>React & Angular</li>
+                            <li>Docker</li>
+                            <li>Puppet</li>
+                            <li>Python</li>
+                            <li>Many years of server Linux experience</li>
+                        </ul>
                     </div>
                 </div>
             </div>
