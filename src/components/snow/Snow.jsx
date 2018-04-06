@@ -96,13 +96,7 @@ export default class Snow extends Component {
 
     render() {
         const snowStyles = {
-            margin: 0,
-            padding: 0,
-            pointerEvents: 'none',
-            position: this.props.position,
-            zIndex: 1,
-            width: '100vw',
-            height: '100vh'
+            position: this.props.position
         };
 
         return (
