@@ -1,6 +1,5 @@
 @import "../../styles/index";
 
-$about-responsive-break: 900px;
 
 .about-grid {
   display: grid;
@@ -48,10 +47,5 @@ $about-responsive-break: 900px;
     background-color: $colour-secondary;
     margin-top: 5px;
     padding: 15px;
-  }
-
-  li:before {
-    //content: '\003E';
-    //margin: 0 1em 0 0;
   }
 }
