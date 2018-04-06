@@ -1,3 +1,5 @@
+let path = require('path');
+let CleanWebpackPlugin = require('clean-webpack-plugin');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -44,6 +46,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(['dist'], {
+            root: path.join(__dirname, '../')
+        }),
         new HtmlWebpackPlugin({
             template: "./src/index.html",
             filename: "./index.html"
