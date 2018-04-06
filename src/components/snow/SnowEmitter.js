@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 export default class SnowEmitter {
 
     constructor(props) {
-        console.log(props);
         this.props = props;
         this.cumTime = 0;
     }
