@@ -1,4 +1,7 @@
-$colour-primary: rgba(51, 59, 80, 1);
+//$colour-primary: rgba(51, 59, 80, 1);
+$colour-primary: #424242;
+//$colour-secondary: rgb(92, 107, 128);
+$colour-secondary: #757575;
 $colour-primary-text: #fff;
 
 @import "flex";
@@ -9,6 +12,7 @@ body {
   overflow: -moz-scrollbars-none;  // Firefox
 
   color: $colour-primary-text;
+  font-size: 1.25rem;
   font-family: Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,4 +25,10 @@ body::-webkit-scrollbar {
 .parallax {
   background: no-repeat fixed center;
   background-size: cover;
+}
+
+.shadowed {
+  -webkit-box-shadow: 0px 1px 25px 4px rgba(47, 46, 46, 0.3);
+  -moz-box-shadow: 0px 1px 25px 4px rgba(47, 46, 46, 0.3);
+  box-shadow: 0px 1px 25px 4px rgba(47, 46, 46, 0.3);
 }

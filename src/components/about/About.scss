@@ -14,11 +14,12 @@ $about-responsive-break: 900px;
   }
 
   height: 100vh;
-  background-color: rgb(65, 72, 88);
+  background-color: $colour-primary;
 }
 .about-container {
   @extend .flex-center;
-  line-height: 1rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.02rem;
 }
 
 .about-text {
@@ -39,10 +40,18 @@ $about-responsive-break: 900px;
     list-style-type: none;
     padding-left: 0;
     margin-top: 0.5rem;
+    font-weight: bold;
+  }
+
+  li {
+    @extend .shadowed;
+    background-color: $colour-secondary;
+    margin-top: 5px;
+    padding: 15px;
   }
 
   li:before {
-    content: '\003E';
-    margin: 0 1em 0 0;
+    //content: '\003E';
+    //margin: 0 1em 0 0;
   }
 }
