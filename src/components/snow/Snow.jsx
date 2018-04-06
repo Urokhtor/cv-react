@@ -5,7 +5,7 @@ import SnowEmitter from "./SnowEmitter";
 
 const UPDATE_INTERVAL = 33;
 const MAX_PARTICLES = 180;
-const PARTICLE_BASE_SPEED = 5;
+const PARTICLE_BASE_SPEED = 50;
 const PARTICLE_MAX_SIZE = 3;
 
 /**
@@ -47,11 +47,21 @@ export default class Snow extends Component {
         clearInterval(this.state.interval);
     }
 
+    /**
+     * <p>Runs the simulation loop over one timestep and handles things like emitting new particles and rendering them on the
+     * screen.</p>
+     *
+     * <p>First the delta time is updated which is used to do time based calculations. Then the emitter is used to put
+     * new particles in the system (if needed). Currently the emitter is time based, e.g. it emits new particles at a
+     * fixed interval. Then after the emitting step, the simulation is updated using the delta time to move the particles.
+     * At this point the particles outside viewport are culled out. Lastly the particles are rendered on screen and the
+     * simulation's state is updated.</p>
+     */
     loop() {
         let currentTime = Date.now();
         let newDelta = currentTime - this.state.lastTime;
         this.state.emitter.update(newDelta, this.state.particles, this.state.context.canvas.clientWidth);
-        let livingParticles = Snow.update(this.props, this.state.context, this.state.particles, newDelta/100);
+        let livingParticles = Snow.update(this.state.context, this.state.particles, newDelta/1000);
         Snow.render(this.state.context, livingParticles);
 
         this.setState({
@@ -60,7 +70,18 @@ export default class Snow extends Component {
         })
     }
 
-    static update(props, context, particles, delta) {
+    /**
+     * Runs the simulation over one timestep. First the canvas size is scaled to actual viewport's size. Then the simulation
+     * is applied over all the particles in the system. After that the particles are filtered based on whether they are
+     * still visible in the viewport, and only those inside it are returned. This way all the particles that have gone
+     * outside of the viewport are automatically destroyed.
+     *
+     * @param context The canvas 2D context.
+     * @param particles Particles in the simulation.
+     * @param delta Delta time in seconds.
+     * @returns {*} Culled list of particles that are still inside the viewport after simulation step has been performed.
+     */
+    static update(context, particles, delta) {
         let canvas = context.canvas;
 
         canvas.width = canvas.clientWidth;
@@ -74,10 +95,26 @@ export default class Snow extends Component {
         return particles.filter(particle => !Snow.outsideViewport(particle, canvas.width, canvas.height));
     }
 
+    /**
+     * Tests whether the given particle is outside given viewport where viewport origin is a 0,0 and <i>w</i> and <i>h</i>
+     * denote the width and height of the viewport.
+     *
+     * @param particle Particle to test against.
+     * @param w Width of the viewport.
+     * @param h Height of the viewport.
+     * @returns {boolean} Whether particle was outside the viewport.
+     */
     static outsideViewport(particle, w, h) {
         return particle.x < 0 || particle.y < 0 || particle.x > w || particle.y > h
     }
 
+    /**
+     * Performs a simple rendering pass over the list of particles in the system. The particles are rendered as a round
+     * filled arcs.
+     *
+     * @param context Canvas 2D context.
+     * @param particles The particles to be rendered.
+     */
     static render(context, particles) {
         let canvas = context.canvas;
         context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
