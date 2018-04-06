@@ -13,7 +13,7 @@ export default class About extends Component {
                         <p>I have worked with <i>Spring Framework</i> and its various components for five years and use it like a Swiss army knife. Although
                             I like to work in the backend, frontend code is not foreign to me either.</p>
                         <p><i>Clean code</i> is becoming increasingly important for me as it not only makes code easier to
-                            read and understand, but also increases its maintainability.</p>
+                            read and understand, but also increases its maintainability and maybe most importantly, makes the code <i>testable</i>.</p>
                         <p>Racing in one form or another has been a life long passion to me and these days I'm a member of the
                             simracing team <i>Black Star Racing</i>. It is a fun hobby that demands diligent training and steely concentration.
                             Apart from that I like to study history, consume coffee and keep myself in shape with weightlifting and cycling.</p>
