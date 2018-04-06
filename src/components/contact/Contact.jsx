@@ -8,7 +8,10 @@ export default class Contact extends Component {
         return (
             <div>
                 <Snow/>
-                <div className={"contact-page contact-container"}>Contact</div>
+                <div className={"contact-page contact-container flex-vertical"}>
+                    <div>Contact</div>
+                    <div><i>Under construction...</i></div>
+                </div>
             </div>
         );
     }
