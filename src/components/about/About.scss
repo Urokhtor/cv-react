@@ -30,17 +30,19 @@ $about-responsive-break: 900px;
   }
 }
 
-h1 {
-  margin-bottom: 1rem;
-}
+.about-skills {
+  h1 {
+    margin-bottom: 1rem;
+  }
 
-ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 0.5rem;
-}
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+  }
 
-li:before {
-  content: '\003E';
-  margin: 0 1em 0 0;
+  li:before {
+    content: '\003E';
+    margin: 0 1em 0 0;
+  }
 }
