@@ -3,8 +3,36 @@
 .experience-container {
   @extend .flex-center;
   @extend .parallax;
+  @extend .flex-vertical;
 
   background-image: url(../../images/background-2.jpg);
 
   height: 100vh;
+
+  ul {
+    list-style-type: none;
+    margin-top: 0.5rem;
+  }
+
+  li:before {
+    content: '\003E';
+    margin: 0 1em 0 0;
+  }
+
+  a {
+    color: $colour-primary-text;
+    font-weight: bold;
+  }
+
+  .karelia {
+    color: #7BB801;
+  }
+
+  .fastroi {
+    color: #FF7A01;
+  }
+
+  .kanta {
+    color: #0090D4;
+  }
 }
