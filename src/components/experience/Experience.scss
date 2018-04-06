@@ -14,8 +14,15 @@
   @extend .flex-center;
   @extend .shadowed;
 
-  width: 50%;
-  height: 40%;
+  @media screen and (max-width: $about-responsive-break) {
+    width: 50%;
+    height: 50%;
+  }
+
+  @media screen and (min-width: $about-responsive-break+1) {
+    width: 50%;
+    height: 40%;
+  }
   background-color: $colour-primary;
 
   padding: 20px;
