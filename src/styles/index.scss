@@ -6,8 +6,6 @@ body {
   margin: 0;
   -ms-overflow-style: none;  // IE 10+
   overflow: -moz-scrollbars-none;  // Firefox
-
-  @include font-base();
 }
 
 body::-webkit-scrollbar {
@@ -23,4 +21,18 @@ body::-webkit-scrollbar {
   -webkit-box-shadow: 0 1px 25px 4px rgba(47, 46, 46, 0.3);
   -moz-box-shadow: 0 1px 25px 4px rgba(47, 46, 46, 0.3);
   box-shadow: 0 1px 25px 4px rgba(47, 46, 46, 0.3);
+}
+
+.card {
+  @extend .shadowed;
+
+  display: block; // So outer flex layout does not leak in.
+
+  background-color: $colour-primary;
+  padding: 20px;
+}
+
+.spaced {
+  margin-right: 6px;
+  margin-bottom: 6px;
 }

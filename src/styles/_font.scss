@@ -13,6 +13,7 @@
 }
 
 * {
+  @include font-base();
   font-size: $text-size;
 
   @media screen and (max-width: $responsive-break), (max-height: $responsive-break) {

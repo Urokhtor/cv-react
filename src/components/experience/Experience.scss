@@ -12,15 +12,7 @@
 
 .experience-card {
   @extend .flex-center;
-  @extend .shadowed;
-
-  background-color: $colour-primary;
-
-  padding: 20px;
-
-  .experience-content {
-    display: block;
-  }
+  @extend .card;
 
   h1 {
     margin-bottom: 1rem;
