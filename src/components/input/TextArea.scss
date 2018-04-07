@@ -1,6 +1,10 @@
 @import '../../styles/index';
 
+$label-offset: 16px;
+
 .text-area {
+  position: relative;
+
   textarea {
     background: transparent;
 
@@ -10,17 +14,25 @@
     outline: none;
     border: 0;
     border-bottom: 2px solid $colour-secondary;
-    padding-top: 16px;
+    padding-top: $label-offset;
   }
 
   textarea:focus {
     border-bottom-color: $colour-accent;
   }
 
-  textarea:focus::placeholder {
+  label {
+    position: absolute;
+    color: $colour-placeholder-text;
+    top: $label-offset;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  textarea:focus + label, textarea:valid + label {
     position: absolute;
     top: 0;
-    font-size: 75%;
+    font-size: 50%;
     color: $colour-accent;
     transition: all 0.2s ease-in-out;
   }

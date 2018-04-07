@@ -27,7 +27,7 @@ export default class TextArea extends Component {
 
     render () {
         return (
-            <div className={"text-area spaced"}>
+            <div className={"text-area spaced flex-vertical"}>
                 <textarea
                     style={{
                         width: this.props.width,
@@ -35,8 +35,9 @@ export default class TextArea extends Component {
                     }}
                     onChange={this.onChange.bind(this)}
                     onBlur={this.onBlur.bind(this)}
-                    placeholder={this.props.label}
-                    value={this.state.value ? this.state.value : ''}/>
+                    value={this.state.value ? this.state.value : ''}
+                    required/>
+                <label>{this.props.label}</label>
             </div>
         );
     }

@@ -1,6 +1,10 @@
 @import '../../styles/index';
 
+$label-offset: 16px;
+
 .text-input {
+  position: relative;
+
   input {
     background: transparent;
 
@@ -9,17 +13,25 @@
     outline: none;
     border: 0;
     border-bottom: 2px solid $colour-secondary;
-    padding-top: 16px;
+    padding-top: $label-offset;
   }
 
   input:focus {
     border-bottom-color: $colour-accent;
   }
 
-  input:focus::placeholder {
+  label {
+    position: absolute;
+    color: #757575;
+    top: $label-offset;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  input:focus + label, input:valid + label {
     position: absolute;
     top: 0;
-    font-size: 75%;
+    font-size: 50%;
     color: $colour-accent;
     transition: all 0.2s ease-in-out;
   }

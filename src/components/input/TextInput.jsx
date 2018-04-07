@@ -27,10 +27,12 @@ export default class TextInput extends Component {
             <div className={"text-input spaced flex-vertical"}>
                 <input
                     type="text"
+                    style={{width: this.props.width}}
                     onChange={this.onChange.bind(this)}
                     onBlur={this.onBlur.bind(this)}
-                    placeholder={this.props.label}
-                    value={this.state.value ? this.state.value : ''}/>
+                    value={this.state.value ? this.state.value : ''}
+                    required/>
+                <label>{this.props.label}</label>
             </div>
         );
     }
@@ -39,5 +41,10 @@ export default class TextInput extends Component {
 TextInput.propTypes = {
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string,
-    label: PropTypes.string
+    label: PropTypes.string,
+    width: PropTypes.number
+};
+
+TextInput.defaultProps = {
+    width: 300
 };
