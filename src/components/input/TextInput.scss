@@ -1,0 +1,26 @@
+@import '../../styles/index';
+
+.text-input {
+  input {
+    background: transparent;
+
+    transition: 0.2s border ease-in-out;
+
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid $colour-secondary;
+    padding-top: 16px;
+  }
+
+  input:focus {
+    border-bottom-color: $colour-accent;
+  }
+
+  input:focus::placeholder {
+    position: absolute;
+    top: 0;
+    font-size: 75%;
+    color: $colour-accent;
+    transition: all 0.2s ease-in-out;
+  }
+}

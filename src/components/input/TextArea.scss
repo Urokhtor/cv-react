@@ -1,0 +1,27 @@
+@import '../../styles/index';
+
+.text-area {
+  textarea {
+    background: transparent;
+
+    transition: 0.2s border ease-in-out;
+
+    resize: none;
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid $colour-secondary;
+    padding-top: 16px;
+  }
+
+  textarea:focus {
+    border-bottom-color: $colour-accent;
+  }
+
+  textarea:focus::placeholder {
+    position: absolute;
+    top: 0;
+    font-size: 75%;
+    color: $colour-accent;
+    transition: all 0.2s ease-in-out;
+  }
+}
