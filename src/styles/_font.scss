@@ -1,0 +1,37 @@
+@import "variables";
+
+@function font-scaling($font-size, $scaling-factor: -0.5rem) {
+  @return $font-size + $scaling-factor;
+}
+
+@mixin font-base() {
+  color: $colour-primary-text;
+
+  font-family: Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-size: $text-size;
+
+  @media screen and (max-device-width: $responsive-break) and (orientation: landscape) {
+    font-size: font-scaling($text-size);
+  }
+}
+
+h1 {
+  font-size: $h1-size;
+
+  @media screen and (max-device-width: $responsive-break) and (orientation: landscape) {
+    font-size: font-scaling($h1-size);
+  }
+}
+
+h2 {
+  font-size: $h2-size;
+
+  @media screen and (max-device-width: $responsive-break) and (orientation: landscape) {
+    font-size: font-scaling($h1-size);
+  }
+}

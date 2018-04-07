@@ -1,20 +1,13 @@
-$colour-primary: #424242;
-$colour-secondary: #757575;
-$colour-primary-text: #fff;
-$about-responsive-break: 900px;
-
+@import "variables";
 @import "flex";
+@import "font";
 
 body {
   margin: 0;
   -ms-overflow-style: none;  // IE 10+
   overflow: -moz-scrollbars-none;  // Firefox
 
-  color: $colour-primary-text;
-  font-size: 1.25rem;
-  font-family: Roboto, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @include font-base();
 }
 
 body::-webkit-scrollbar {

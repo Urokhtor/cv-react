@@ -1,14 +1,15 @@
 @import "../../styles/index";
 
+$about-line-height: 1.25rem;
 
 .about-grid {
   display: grid;
 
-  @media screen and (max-width: $about-responsive-break) {
+  @media screen and (max-device-width: $responsive-break) {
     grid-template-rows: 50vh 50vh;
   }
 
-  @media screen and (min-width: $about-responsive-break+1) {
+  @media screen and (min-device-width: $responsive-break+1) {
     grid-template-columns: 65vw 35vw;
   }
 
@@ -17,8 +18,13 @@
 }
 .about-container {
   @extend .flex-center;
-  line-height: 1.25rem;
   letter-spacing: 0.02rem;
+
+  line-height: $about-line-height;
+
+  @media screen and (max-device-width: $responsive-break) and (orientation: landscape) {
+    line-height: font-scaling($about-line-height);
+  }
 }
 
 .about-text {
