@@ -1,6 +1,6 @@
 @import "variables";
 
-@function font-scaling($font-size, $scaling-factor: -0.5rem) {
+@function font-scaling($font-size, $scaling-factor: -0.25rem) {
   @return $font-size + $scaling-factor;
 }
 
@@ -15,7 +15,7 @@
 * {
   font-size: $text-size;
 
-  @media screen and (max-device-width: $responsive-break) and (orientation: landscape) {
+  @media screen and (max-width: $responsive-break), (max-height: $responsive-break) {
     font-size: font-scaling($text-size);
   }
 }
@@ -23,7 +23,7 @@
 h1 {
   font-size: $h1-size;
 
-  @media screen and (max-device-width: $responsive-break) and (orientation: landscape) {
+  @media screen and (max-width: $responsive-break), (max-height: $responsive-break) {
     font-size: font-scaling($h1-size);
   }
 }
@@ -31,7 +31,7 @@ h1 {
 h2 {
   font-size: $h2-size;
 
-  @media screen and (max-device-width: $responsive-break) and (orientation: landscape) {
+  @media screen and (max-width: $responsive-break), (max-height: $responsive-break) {
     font-size: font-scaling($h1-size);
   }
 }
