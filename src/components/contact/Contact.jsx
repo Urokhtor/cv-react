@@ -3,6 +3,7 @@ import './Contact.scss';
 import Snow from "../snow/Snow";
 import TextInput from "../input/TextInput";
 import TextArea from "../input/TextArea";
+import RaisedButton from "../input/RaisedButton";
 
 export default class Contact extends Component {
 
@@ -34,6 +35,19 @@ export default class Contact extends Component {
         });
     }
 
+    onSubmit() {
+        console.log("onsubmit");
+        // TODO: now build the email and send it.
+
+        this.setState({
+            email: null,
+            title: null,
+            message: null
+        });
+
+        // TODO: show user acknowledgement that email was sent successfully.
+    }
+
     render() {
         return (
             <div>
@@ -60,6 +74,11 @@ export default class Contact extends Component {
                                     width={400}
                                     height={200}/>
                             </div>
+                        </div>
+                        <div className={"flex-end"}>
+                            <RaisedButton
+                                text={"Send"}
+                                onClick={this.onSubmit.bind(this)}/>
                         </div>
                     </div>
                 </div>
