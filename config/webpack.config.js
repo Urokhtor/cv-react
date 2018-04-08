@@ -54,8 +54,12 @@ module.exports = {
             filename: "./index.html"
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
+            filename: "[hash].[name].css",
             chunkFilename: "[id].css"
         })
-    ]
+    ],
+    output: {
+        filename: '[hash].[name].js',
+        path: path.resolve(__dirname, '../dist')
+    }
 };
