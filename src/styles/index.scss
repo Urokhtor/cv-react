@@ -35,10 +35,10 @@ body::-webkit-scrollbar {
   display: block; // So outer flex layout does not leak in.
 
   background-color: $colour-primary;
-  padding: 20px;
+  padding: $material-padding-large;
 }
 
 .spaced {
-  margin-right: 6px;
-  margin-bottom: 6px;
+  margin-right: $material-padding-normal;
+  margin-bottom: $material-padding-large;
 }

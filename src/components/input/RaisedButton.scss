@@ -4,13 +4,13 @@ button {
   @extend .shadowed;
   position: relative;
 
-  margin-top: $material-spacing;
-  margin-bottom: $material-spacing;
+  margin-top: $material-padding-normal;
+  margin-bottom: $material-padding-normal;
 
   border: none;
   height: 36px;
   min-width: 88px;
-  padding: 0 $material-padding;
+  padding: 0 $material-padding-large;
 
   cursor: pointer;
   outline: none;

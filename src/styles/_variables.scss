@@ -5,12 +5,12 @@ $colour-accent-dark: #388E3C; // Material green 700
 $colour-primary-text: #fff;
 $colour-placeholder-text: #757575;
 
-// TODO: convert this to em because it's more consistent than using pixels. 1em = 16px.
-$responsive-break: 960px;
+// 1em = 16px.
+$responsive-break: 60em;
 
 $h1-size: 1.75rem;
 $h2-size: 1.5rem;
 $text-size: 1.25rem;
 
-$material-padding: 16px;
-$material-spacing: $material-padding/2;
+$material-padding-large: 1em;
+$material-padding-normal: $material-padding-large/2;

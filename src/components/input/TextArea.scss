@@ -3,8 +3,8 @@
 
 .text-area {
   position: relative;
-  margin-top: $material-spacing !important;
-  margin-bottom: $material-spacing !important;
+  margin-top: $material-padding-normal !important;
+  margin-bottom: $material-padding-normal !important;
 
   textarea {
     background: transparent;
@@ -15,8 +15,8 @@
     outline: none;
     border: 0;
     border-bottom: 2px solid $colour-secondary;
-    padding-top: $material-padding;
-    padding-bottom: $material-spacing;
+    padding-top: $material-padding-large;
+    padding-bottom: $material-padding-normal;
   }
 
   textarea:focus {
@@ -26,7 +26,7 @@
   label {
     position: absolute;
     color: $colour-placeholder-text;
-    top: $material-padding;
+    top: $material-padding-large;
     pointer-events: none;
     transition: all 0.2s ease-in-out;
   }

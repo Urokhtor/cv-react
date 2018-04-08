@@ -31,27 +31,27 @@ $about-line-height: 1.25rem;
   width: 80%;
 
   h2, p {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: $material-padding-normal;
+    margin-bottom: $material-padding-normal;
   }
 }
 
 .about-skills {
   h1 {
-    margin-bottom: 1rem;
+    margin-bottom: $material-padding-large;
   }
 
   ul {
     list-style-type: none;
     padding-left: 0;
-    margin-top: 0.5rem;
+    margin-top: $material-padding-normal;
     font-weight: bold;
   }
 
   li {
     @extend .shadowed;
     background-color: $colour-secondary;
-    margin-top: 5px;
-    padding: 15px;
+    margin-top: $material-padding-normal;
+    padding: $material-padding-normal;
   }
 }

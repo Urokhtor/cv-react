@@ -15,7 +15,7 @@
 }
 
 .navbar-spaced > div {
-  margin: 1rem;
+  margin: $material-padding-normal;
 
   &:hover {
     cursor: pointer;
