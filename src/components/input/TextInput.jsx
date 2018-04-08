@@ -12,6 +12,16 @@ export default class TextInput extends Component {
         };
     }
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (prevState.value !== nextProps.value) {
+            return {
+                value: nextProps.value
+            };
+        }
+
+        return null;
+    }
+
     onChange(event) {
         this.setState({
             value: event.target.value
@@ -19,12 +29,12 @@ export default class TextInput extends Component {
     }
 
     onBlur() {
-        this.props.onChange(this.props.value);
+        this.props.onChange(this.state.value);
     }
 
     render () {
         return (
-            <div className={"text-input spaced flex-vertical"}>
+            <div className={"text-input flex-vertical"}>
                 <input
                     type="text"
                     style={{width: this.props.width}}

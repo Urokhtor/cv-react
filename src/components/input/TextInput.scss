@@ -1,10 +1,9 @@
 @import '../../styles/index';
 
-$label-offset: 16px;
-
 .text-input {
   position: relative;
-  margin-top: $label-offset;
+  margin-top: $material-spacing !important;
+  margin-bottom: $material-spacing !important;
 
   input {
     background: transparent;
@@ -14,8 +13,8 @@ $label-offset: 16px;
     outline: none;
     border: 0;
     border-bottom: 2px solid $colour-secondary;
-    padding-top: $label-offset;
-    padding-bottom: 8px;
+    padding-top: $material-padding;
+    padding-bottom: $material-spacing;
   }
 
   input:focus {
@@ -25,7 +24,7 @@ $label-offset: 16px;
   label {
     position: absolute;
     color: #757575;
-    top: $label-offset;
+    top: $material-padding;
     pointer-events: none;
     transition: all 0.2s ease-in-out;
   }
@@ -33,7 +32,7 @@ $label-offset: 16px;
   input:focus + label, input:valid + label {
     position: absolute;
     top: 0;
-    font-size: 50%;
+    font-size: 75%;
     color: $colour-accent;
     transition: all 0.2s ease-in-out;
   }

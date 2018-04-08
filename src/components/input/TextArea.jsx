@@ -15,6 +15,16 @@ export default class TextArea extends Component {
         };
     }
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (prevState.value !== nextProps.value) {
+            return {
+                value: nextProps.value
+            };
+        }
+
+        return null;
+    }
+
     onChange(event) {
         this.setState({
             value: event.target.value
@@ -22,12 +32,12 @@ export default class TextArea extends Component {
     }
 
     onBlur() {
-        this.props.onChange(this.props.value);
+        this.props.onChange(this.state.value);
     }
 
     render () {
         return (
-            <div className={"text-area spaced flex-vertical"}>
+            <div className={"text-area flex-vertical"}>
                 <textarea
                     style={{
                         width: this.props.width,
