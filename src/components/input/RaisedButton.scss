@@ -1,0 +1,33 @@
+@import '../../styles/index.scss';
+
+button {
+  @extend .shadowed;
+  position: relative;
+
+  margin-top: $material-spacing;
+  margin-bottom: $material-spacing;
+
+  border: none;
+  height: 36px;
+  min-width: 88px;
+  padding: 0 $material-padding;
+
+  cursor: pointer;
+  outline: none;
+
+  font-size: 14pt;
+  text-transform: uppercase;
+
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+
+  color: $colour-primary-text;
+  background-color: $colour-accent;
+
+}
+
+button:active {
+  @extend .shadowed-large;
+  background-color: $colour-accent-dark;
+}
