@@ -15,24 +15,12 @@
 * {
   @include font-base();
   font-size: $text-size;
-
-  @media screen and (max-width: $responsive-break), (max-height: $responsive-break) {
-    font-size: font-scaling($text-size);
-  }
 }
 
 h1 {
   font-size: $h1-size;
-
-  @media screen and (max-width: $responsive-break), (max-height: $responsive-break) {
-    font-size: font-scaling($h1-size);
-  }
 }
 
 h2 {
   font-size: $h2-size;
-
-  @media screen and (max-width: $responsive-break), (max-height: $responsive-break) {
-    font-size: font-scaling($h1-size);
-  }
 }
