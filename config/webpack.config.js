@@ -45,6 +45,18 @@ module.exports = {
 
         ]
     },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                default: false,
+                commons: {
+                    test: /node_modules/,
+                    name: "vendor",
+                    chunks: "initial"
+                }
+            }
+        }
+    },
     plugins: [
         new CleanWebpackPlugin(['dist'], {
             root: path.join(__dirname, '../')
@@ -54,12 +66,12 @@ module.exports = {
             filename: "./index.html"
         }),
         new MiniCssExtractPlugin({
-            filename: "[hash].[name].css",
+            filename: "[name].[contenthash].css",
             chunkFilename: "[id].css"
         })
     ],
     output: {
-        filename: '[hash].[name].js',
-        path: path.resolve(__dirname, '../dist')
+        chunkFilename: "[name].[contenthash].js",
+        filename: "[name].[contenthash].js",
     }
 };
