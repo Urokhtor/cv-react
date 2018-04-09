@@ -7,16 +7,21 @@ export default class Navbar extends Component {
     constructor(props) {
         super(props);
 
+        this.homeRef = React.createRef();
+        this.aboutRef = React.createRef();
+        this.experienceRef = React.createRef();
+        this.contactRef = React.createRef();
+
         this.state = {
-            selected: 'home'
-        }
+            selected: this.homeRef
+        };
     }
 
-    onClick(ref) {
-        Scroll.toElement(document.querySelector(`.${ref}-page`));
+    onClick(ref, view) {
+        Scroll.toElement(document.querySelector(`.${view}-page`));
 
-        this.refs[this.state.selected].classList.remove('selected');
-        this.refs[ref].classList.add('selected');
+        this.state.selected.current.classList.remove('selected');
+        ref.current.classList.add('selected');
 
         this.setState({
             selected: ref
@@ -27,10 +32,10 @@ export default class Navbar extends Component {
         return (
             <nav style={this.props.style} className={"navbar-container"}>
                 <div className="navbar-spaced flex-end">
-                    <div ref="home" onClick={this.onClick.bind(this, 'home')}>Home</div>
-                    <div ref="about" onClick={this.onClick.bind(this, 'about')}>About</div>
-                    <div ref="experience" onClick={this.onClick.bind(this, 'experience')}>Experience</div>
-                    <div ref="contact" onClick={this.onClick.bind(this, 'contact')}>Contact</div>
+                    <div ref={this.homeRef} key={'home'} onClick={this.onClick.bind(this, this.homeRef, 'home')}>Home</div>
+                    <div ref={this.aboutRef} onClick={this.onClick.bind(this, this.aboutRef, 'about')}>About</div>
+                    <div ref={this.experienceRef} onClick={this.onClick.bind(this, this.experienceRef, 'experience')}>Experience</div>
+                    <div ref={this.contactRef} onClick={this.onClick.bind(this, this.contactRef, 'contact')}>Contact</div>
                 </div>
             </nav>
         )
