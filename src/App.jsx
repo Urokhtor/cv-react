@@ -11,12 +11,14 @@ export default class App extends Component {
     render() {
         return (
             <div className="grid-container">
-                <Navbar/>
-                <Home/>
-                <About/>
-                <Experience/>
-                <Contact/>
-                <Footer/>
+                <React.StrictMode>
+                    <Navbar/>
+                    <Home/>
+                    <About/>
+                    <Experience/>
+                    <Contact/>
+                    <Footer/>
+                </React.StrictMode>
             </div>
         );
     }
