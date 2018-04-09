@@ -21,10 +21,6 @@ $about-line-height: 1.25rem;
   letter-spacing: 0.02rem;
 
   line-height: $about-line-height;
-
-  @media screen and (max-width: $responsive-break), (max-height: $responsive-break) {
-    line-height: font-scaling($about-line-height);
-  }
 }
 
 .about-text {
