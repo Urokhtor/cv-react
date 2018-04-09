@@ -51,4 +51,22 @@
   .kanta {
     color: #0090D4;
   }
+
+  svg {
+    width: 3em;
+    height: 10em;
+  }
+  circle, rect {
+    stroke: $colour-accent;
+    fill: $colour-accent;
+  }
+
+  circle {
+    r: 0.4em;
+  }
+
+  rect {
+    width: 0.2em;
+    height: 5.5em;
+  }
 }

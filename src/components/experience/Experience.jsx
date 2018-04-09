@@ -6,7 +6,15 @@ export default class Experience extends Component {
     render() {
         return (
             <div className={"experience-page experience-container"}>
-                <div className={"experience-card"}>
+                <div className={"experience-card flex-horizontal"}>
+                    <div>
+                        <svg>
+                            <circle cx="1em" cy="0.6em"/>
+                            <rect x="0.88em" y="0.6em" />
+                            <circle  cx="1em" cy="6.2em"/>
+                            <rect x="0.88em" y="6.2em" />
+                        </svg>
+                    </div>
                         <div className={"experience-content"}>
                         <h1>Career</h1>
                         <h2>2009 - 2013 <br/> Studied electrical engineering at <a target="_blank" href="http://www.karelia.fi/en/" className="karelia">Karelia University of Applied Sciences</a></h2>
