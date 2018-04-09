@@ -9,7 +9,7 @@ export default class About extends Component {
                 <div className={"about-container"}>
                     <div className={"about-text flex-vertical"}>
                         <h1>About</h1>
-                        <p>Full stack developer who writes code mainly in Java.</p>
+                        <p>Full stack developer who writes code mainly in Java and lives in Joensuu, Finland.</p>
                         <p>I have worked with <i>Spring Framework</i> and its various components for five years and use it like a Swiss army knife. Although
                             I like to work in the backend, frontend code is not foreign to me either.</p>
                         <p><i>Clean code</i> is becoming increasingly important for me as it not only makes code easier to
