@@ -55,6 +55,7 @@ export default class Contact extends Component {
                 <div className={"contact-page contact-container flex-vertical"}>
                     <div className={"card"} style={{zIndex: 2}}>
                         <div>Contact</div>
+                        <div><i>Does not work yet...</i></div>
                         <div className={"flex-horizontal"}>
                             <div className={"flex-vertical"}>
                                 <TextInput
