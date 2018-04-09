@@ -14,7 +14,7 @@
   @extend .flex-center;
   @extend .card;
 
-  @media screen and (max-width: $responsive-break) {
+  @media screen and (max-width: $responsive-break), (max-device-width: $responsive-break) {
     width: 100vw;
   }
 
