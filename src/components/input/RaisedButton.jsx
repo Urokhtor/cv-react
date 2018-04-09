@@ -14,6 +14,6 @@ export default class RaisedButton extends Component {
 }
 
 RaisedButton.propTypes = {
-    text: PropTypes.string,
+    text: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
 };
