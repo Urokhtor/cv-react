@@ -42,6 +42,7 @@
     ]
   },
   "jest": {
+    "setupFiles": ["./tests/jestsetup.js"],
     "moduleNameMapper": {
       "\\.(css|scss|less)$": "identity-obj-proxy"
     }
