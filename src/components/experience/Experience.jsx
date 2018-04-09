@@ -16,7 +16,7 @@ export default class Experience extends Component {
                         </svg>
                     </div>
                         <div className={"experience-content"}>
-                        <h1>Career</h1>
+                        <h1>Experience</h1>
                         <h2>2009 - 2013 <br/> Studied electrical engineering at <a target="_blank" href="http://www.karelia.fi/en/" className="karelia">Karelia University of Applied Sciences</a></h2>
                         <ul><li>Industry automation and programming as side subjects</li></ul>
                         <h2>2013 May - <br/> <a target="_blank" href="https://fastroi.fi/en/" className="fastroi">Fastroi Oy</a></h2>
