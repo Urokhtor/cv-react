@@ -13,18 +13,38 @@ export default class Navbar extends Component {
         this.contactRef = React.createRef();
 
         this.state = {
-            selected: this.homeRef
+            selected: this.homeRef,
+            selectedClass: 'home'
         };
     }
 
+    /**
+     * This fast scroll is used when the viewport size changes to seamlessly move the viewport to its previous location.
+     * It does not do much on desktop, but on mobile the viewport moved to a random position when the viewport changed
+     * from portrait to landscape of the other way around. This routine just quickly sets the viewport back to where it
+     * was and the user won't have to re-scroll.
+     */
+    fastScrollTo() {
+        Scroll.toElementFast(`.${this.state.selectedClass}-page`);
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.fastScrollTo.bind(this))
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.fastScrollTo.bind(this))
+    }
+
     onClick(ref, view) {
-        Scroll.toElement(document.querySelector(`.${view}-page`));
+        Scroll.toElement(`.${view}-page`);
 
         this.state.selected.current.classList.remove('selected');
         ref.current.classList.add('selected');
 
         this.setState({
-            selected: ref
+            selected: ref,
+            selectedClass: view
         });
     }
 
