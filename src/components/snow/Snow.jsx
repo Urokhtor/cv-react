@@ -66,7 +66,7 @@ export default class Snow extends Component {
 
         this.setState({
             particles: livingParticles,
-            lastTime : currentTime
+            lastTime: currentTime
         })
     }
 
