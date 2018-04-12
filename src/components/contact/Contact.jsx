@@ -12,7 +12,7 @@ export default class Contact extends Component {
 
         this.state = {
             email: null,
-            title: null,
+            subject: null,
             message: null
         }
     }
@@ -25,7 +25,7 @@ export default class Contact extends Component {
 
     titleChange(text) {
         this.setState({
-            title: text
+            subject: text
         });
     }
 
@@ -41,7 +41,7 @@ export default class Contact extends Component {
 
         this.setState({
             email: null,
-            title: null,
+            subject: null,
             message: null
         });
 
@@ -63,7 +63,7 @@ export default class Contact extends Component {
                                     label={'Email'}
                                     onChange={this.emailChange.bind(this)} />
                                 <TextInput
-                                    value={this.state.title}
+                                    value={this.state.subject}
                                     label={'Title'}
                                     onChange={this.titleChange.bind(this)} />
                             </div>
