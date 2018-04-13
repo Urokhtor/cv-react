@@ -63,6 +63,10 @@ export default class Contact extends Component {
 
         fetch('/cv/api/v1/email/send', {
             method: 'post',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 from: this.state.email,
                 subject: this.state.subject,
