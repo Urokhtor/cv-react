@@ -23,7 +23,7 @@
     border-bottom-color: $colour-accent;
   }
 
-  label {
+  label[class=label] {
     position: absolute;
     color: $colour-placeholder-text;
     top: $material-padding-large;
@@ -31,7 +31,16 @@
     transition: all 0.2s ease-in-out;
   }
 
-  textarea:focus + label, textarea:valid + label {
+  label[class=error] {
+    position: absolute;
+    color: $colour-error;
+    bottom: -$material-padding-normal*3;
+    font-size: 75%;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  textarea:focus + label[class=label], textarea:valid + label[class=label] {
     position: absolute;
     top: 0;
     font-size: 75%;

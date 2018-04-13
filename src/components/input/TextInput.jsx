@@ -8,7 +8,8 @@ export default class TextInput extends Component {
         super(props);
 
         this.state = {
-            value: props.value
+            value: props.value,
+            error: null
         };
     }
 
@@ -29,7 +30,27 @@ export default class TextInput extends Component {
     }
 
     onBlur() {
-        this.props.onChange(this.state.value);
+        this.setState({
+            error: null
+        });
+
+        let failed = false;
+
+        if (this.props.validator) {
+            let validationResult = this.props.validator(this.state.value);
+
+            if (validationResult !== undefined) {
+                failed = true;
+                this.setState({
+                    error: validationResult
+                });
+            }
+        }
+
+        this.props.onChange({
+            failed: failed,
+            value: this.state.value
+        });
     }
 
     render () {
@@ -42,7 +63,8 @@ export default class TextInput extends Component {
                     onBlur={this.onBlur.bind(this)}
                     value={this.state.value ? this.state.value : ''}
                     required/>
-                <label>{this.props.label}</label>
+                {this.props.label && <label className={"label"}>{this.props.label}</label>}
+                {this.state.error && <label className={"error"}>{this.state.error}</label>}
             </div>
         );
     }
@@ -50,6 +72,7 @@ export default class TextInput extends Component {
 
 TextInput.propTypes = {
     onChange: PropTypes.func.isRequired,
+    validator: PropTypes.func,
     value: PropTypes.string,
     label: PropTypes.string,
     width: PropTypes.number

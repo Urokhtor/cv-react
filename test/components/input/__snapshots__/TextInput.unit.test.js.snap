@@ -35,9 +35,12 @@ ShallowWrapper {
           type="text"
           value="some-text-value"
         />,
-        <label>
+        <label
+          className="label"
+        >
           some-text-label
         </label>,
+        null,
       ],
       "className": "text-input flex-vertical",
     },
@@ -67,11 +70,13 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "some-text-label",
+          "className": "label",
         },
         "ref": null,
         "rendered": "some-text-label",
         "type": "label",
       },
+      null,
     ],
     "type": "div",
   },
@@ -94,9 +99,12 @@ ShallowWrapper {
             type="text"
             value="some-text-value"
           />,
-          <label>
+          <label
+            className="label"
+          >
             some-text-label
           </label>,
+          null,
         ],
         "className": "text-input flex-vertical",
       },
@@ -126,9 +134,208 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "some-text-label",
+            "className": "label",
           },
           "ref": null,
           "rendered": "some-text-label",
+          "type": "label",
+        },
+        null,
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`TextInput should match snapshot when in failed state 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TextInput
+    label="some-text-label"
+    onChange={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "failed": true,
+              "value": "new-text-input",
+            },
+          ],
+        ],
+      }
+    }
+    validator={[Function]}
+    value="some-text-value"
+    width={300}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <input
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={true}
+          style={
+            Object {
+              "width": 300,
+            }
+          }
+          type="text"
+          value="new-text-input"
+        />,
+        <label
+          className="label"
+        >
+          some-text-label
+        </label>,
+        <label
+          className="error"
+        >
+          error
+        </label>,
+      ],
+      "className": "text-input flex-vertical",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "onBlur": [Function],
+          "onChange": [Function],
+          "required": true,
+          "style": Object {
+            "width": 300,
+          },
+          "type": "text",
+          "value": "new-text-input",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "some-text-label",
+          "className": "label",
+        },
+        "ref": null,
+        "rendered": "some-text-label",
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "error",
+          "className": "error",
+        },
+        "ref": null,
+        "rendered": "error",
+        "type": "label",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <input
+            onBlur={[Function]}
+            onChange={[Function]}
+            required={true}
+            style={
+              Object {
+                "width": 300,
+              }
+            }
+            type="text"
+            value="new-text-input"
+          />,
+          <label
+            className="label"
+          >
+            some-text-label
+          </label>,
+          <label
+            className="error"
+          >
+            error
+          </label>,
+        ],
+        "className": "text-input flex-vertical",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "onBlur": [Function],
+            "onChange": [Function],
+            "required": true,
+            "style": Object {
+              "width": 300,
+            },
+            "type": "text",
+            "value": "new-text-input",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "some-text-label",
+            "className": "label",
+          },
+          "ref": null,
+          "rendered": "some-text-label",
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "error",
+            "className": "error",
+          },
+          "ref": null,
+          "rendered": "error",
           "type": "label",
         },
       ],

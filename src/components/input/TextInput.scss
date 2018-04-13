@@ -3,7 +3,7 @@
 .text-input {
   position: relative;
   margin-top: $material-padding-normal !important;
-  margin-bottom: $material-padding-normal !important;
+  margin-bottom: $material-padding-large !important;
 
   input {
     background: transparent;
@@ -21,7 +21,7 @@
     border-bottom-color: $colour-accent;
   }
 
-  label {
+  label[class=label] {
     position: absolute;
     color: #757575;
     top: $material-padding-large;
@@ -29,7 +29,16 @@
     transition: all 0.2s ease-in-out;
   }
 
-  input:focus + label, input:valid + label {
+  label[class=error] {
+    position: absolute;
+    color: $colour-error;
+    top: $material-padding-large*4;
+    font-size: 75%;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  input:focus + label[class=label], input:valid + label[class=label] {
     position: absolute;
     top: 0;
     font-size: 75%;
