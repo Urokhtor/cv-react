@@ -10,4 +10,13 @@
   input, textarea, label {
     font-size: 1rem;
   }
+
+  .contact-padded {
+    padding-left: $material-padding-normal;
+    padding-right: $material-padding-normal;
+  }
+
+  .contact-error-text {
+    color: $colour-error;
+  }
 }

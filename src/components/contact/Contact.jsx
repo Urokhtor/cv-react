@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {MorphIcon} from 'react-svg-buttons';
 import './Contact.scss';
 import Snow from "../snow/Snow";
 import TextInput from "../input/TextInput";
@@ -17,7 +18,9 @@ export default class Contact extends Component {
             emailError: false,
             subject: null,
             message: null,
-            messagseError: false
+            messageError: false,
+            responseSuccess: false,
+            responseError: null
         }
     }
 
@@ -43,14 +46,22 @@ export default class Contact extends Component {
 
     onSubmit() {
         if (this.state.emailError || this.state.messageError) {
+            this.setState({
+                responseSuccess: false,
+                responseError: "There are validation failures"
+            });
             return;
         }
 
         if (this.state.email === null || this.state.message === null) {
+            this.setState({
+                responseSuccess: false,
+                responseError: "Email address or message are empty"
+            });
             return;
         }
 
-        fetch('/api/v1/email/send', {
+        fetch('/cv/api/v1/email/send', {
             method: 'post',
             body: JSON.stringify({
                 from: this.state.email,
@@ -59,11 +70,10 @@ export default class Contact extends Component {
             })
         })
             .then(response => {
-                console.log(response);
                 if (response.status !== 200) {
-                    // TODO: show user error message
                     this.setState({
-                        responseMessage: response.statusText
+                        responseSuccess: false,
+                        responseError: response.statusText
                     });
                     return;
                 }
@@ -72,15 +82,14 @@ export default class Contact extends Component {
                     email: null,
                     subject: null,
                     message: null,
-                    responseMessage: "OK"
+                    responseSuccess: true,
+                    responseError: null
                 });
-
-                // TODO: show user acknowledgement that email was sent successfully.
             })
             .catch(error => {
-                // TODO: show user error message
                 this.setState({
-                    responseMessage: JSON.stringify(error)
+                    responseSuccess: false,
+                    responseError: JSON.stringify(error)
                 });
             });
     }
@@ -92,7 +101,6 @@ export default class Contact extends Component {
                 <div className={"contact-page contact-container flex-vertical"}>
                     <div className={"card"} style={{zIndex: 2}}>
                         <div>Contact</div>
-                        <div><i>Does not work yet...</i></div>
                         <div className={"flex-horizontal"}>
                             <div className={"flex-vertical"}>
                                 <TextInput
@@ -115,7 +123,7 @@ export default class Contact extends Component {
                                     label={'Message'}
                                     onChange={this.messageChange.bind(this)}
                                     validator={input => {
-                                        if (input.length < 6) {
+                                        if (!input || input.length < 6) {
                                             return "Message is too short";
                                         }
                                     }}
@@ -124,7 +132,21 @@ export default class Contact extends Component {
                             </div>
                         </div>
                         <div className={"flex-end"}>
-                            <span>{this.state.responseMessage}</span>
+                            {this.state.responseSuccess &&
+                            <div className={"flex-center contact-padded"}>
+                                <MorphIcon
+                                    type="check"
+                                    size={20}
+                                    color="#4CAF50"/>
+                            </div>}
+                            {this.state.responseError &&
+                            <div className={"flex-center contact-padded"}>
+                                <span className={"contact-padded contact-error-text"}>{this.state.responseError}</span>
+                                <MorphIcon
+                                    type="cross"
+                                    size={20}
+                                    color="#F44336"/>
+                            </div>}
                             <RaisedButton
                                 text={"Send"}
                                 onClick={this.onSubmit.bind(this)}/>
