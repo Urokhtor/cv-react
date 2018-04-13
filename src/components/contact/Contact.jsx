@@ -5,6 +5,8 @@ import TextInput from "../input/TextInput";
 import TextArea from "../input/TextArea";
 import RaisedButton from "../input/RaisedButton";
 
+const REGEX_EMAIL = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
 export default class Contact extends Component {
 
     constructor(props) {
@@ -12,40 +14,75 @@ export default class Contact extends Component {
 
         this.state = {
             email: null,
+            emailError: false,
             subject: null,
-            message: null
+            message: null,
+            messagseError: false
         }
     }
 
-    emailChange(text) {
+    emailChange(change) {
         this.setState({
-            email: text
+            email: change.value,
+            emailError: change.failed
         });
     }
 
-    titleChange(text) {
+    titleChange(change) {
         this.setState({
-            subject: text
+            subject: change.value
         });
     }
 
-    messageChange(text) {
+    messageChange(change) {
         this.setState({
-            message: text
+            message: change.value,
+            messageError: change.failed
         });
     }
 
     onSubmit() {
-        console.log("onsubmit");
-        // TODO: now build the email and send it.
+        if (this.state.emailError || this.state.messageError) {
+            return;
+        }
 
-        this.setState({
-            email: null,
-            subject: null,
-            message: null
-        });
+        if (this.state.email === null || this.state.message === null) {
+            return;
+        }
 
-        // TODO: show user acknowledgement that email was sent successfully.
+        fetch('/api/v1/email/send', {
+            method: 'post',
+            body: JSON.stringify({
+                from: this.state.email,
+                subject: this.state.subject,
+                message: this.state.message
+            })
+        })
+            .then(response => {
+                console.log(response);
+                if (response.status !== 200) {
+                    // TODO: show user error message
+                    this.setState({
+                        responseMessage: response.statusText
+                    });
+                    return;
+                }
+
+                this.setState({
+                    email: null,
+                    subject: null,
+                    message: null,
+                    responseMessage: "OK"
+                });
+
+                // TODO: show user acknowledgement that email was sent successfully.
+            })
+            .catch(error => {
+                // TODO: show user error message
+                this.setState({
+                    responseMessage: JSON.stringify(error)
+                });
+            });
     }
 
     render() {
@@ -61,7 +98,12 @@ export default class Contact extends Component {
                                 <TextInput
                                     value={this.state.email}
                                     label={'Email'}
-                                    onChange={this.emailChange.bind(this)} />
+                                    onChange={this.emailChange.bind(this)}
+                                    validator={input => {
+                                        if (!REGEX_EMAIL.test(input)) {
+                                            return "Invalid email address";
+                                        }
+                                    }} />
                                 <TextInput
                                     value={this.state.subject}
                                     label={'Title'}
@@ -72,11 +114,17 @@ export default class Contact extends Component {
                                     value={this.state.message}
                                     label={'Message'}
                                     onChange={this.messageChange.bind(this)}
+                                    validator={input => {
+                                        if (input.length < 6) {
+                                            return "Message is too short";
+                                        }
+                                    }}
                                     width={400}
                                     height={200}/>
                             </div>
                         </div>
                         <div className={"flex-end"}>
+                            <span>{this.state.responseMessage}</span>
                             <RaisedButton
                                 text={"Send"}
                                 onClick={this.onSubmit.bind(this)}/>
