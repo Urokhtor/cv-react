@@ -105,6 +105,7 @@ export default class Contact extends Component {
                 <div className={"contact-page contact-container flex-vertical"}>
                     <div className={"card"} style={{zIndex: 2}}>
                         <div>Contact</div>
+                        <p><i>Still under construction... In the meantime contact me at <a href={"https://www.linkedin.com/in/jere-teittinen-650278162/"} target={"_blank"}>LinkedIn</a></i></p>
                         <div className={"flex-horizontal"}>
                             <div className={"flex-vertical"}>
                                 <TextInput
