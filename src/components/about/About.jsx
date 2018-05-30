@@ -17,6 +17,7 @@ export default class About extends Component {
                         <p>Racing in one form or another has been a life long passion to me and these days I'm a member of the
                             simracing team <i>Black Star Racing</i>. It is a fun hobby that demands diligent training and steely concentration.
                             Apart from that I like to study history, consume coffee and keep myself in shape with weightlifting and cycling.</p>
+                        <p>Lately I have concentrated more on reading, which is an interest I have put aside due to lack of time.</p>
                         <p>This site itself was built as sort of an exercise because I felt like doing some UI coding with React.</p>
                     </div>
                 </div>
