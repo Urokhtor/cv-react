@@ -62,7 +62,8 @@
 
   svg {
     width: 3em;
-    height: 10em;
+    min-height: 20em;
+    margin-top: 4.5em;
   }
   circle, rect {
     stroke: $colour-accent;
@@ -75,6 +76,5 @@
 
   rect {
     width: 0.2em;
-    height: 5.5em;
   }
 }
