@@ -2,47 +2,73 @@
   "name": "CV",
   "version": "0.0.1",
   "scripts": {
-    "start": "webpack-dev-server --mode development --config ./config/webpack.config.js",
-    "build": "webpack --mode production --config ./config/webpack.config.js"
+    "start": "webpack-dev-server --mode development --config ./config/webpack.development.js",
+    "build": "webpack --mode production --config ./config/webpack.production.js"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-transform-async-to-generator": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.1.2",
-    "babel-core": "^7.0.0-beta.3",
-    "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.4",
-    "clean-webpack-plugin": "^0.1.19",
-    "css-loader": "^0.28.11",
-    "enzyme": "^3.7.0",
-    "enzyme-adapter-react-16": "^1.6.0",
-    "file-loader": "^2.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/enzyme": "^3.9.0",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.9",
+    "@types/node": "^11.10.4",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^1.0.1",
+    "css-loader": "^2.1.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "file-loader": "^3.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.6.0",
-    "mini-css-extract-plugin": "^0.4.4",
-    "node-sass": "^4.9.4",
+    "jest": "^24.1.0",
+    "json-server": "^0.14.2",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
     "path": "^0.12.7",
-    "prop-types": "^15.6.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-svg-buttons": "^0.4.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "typescript": "^3.3.3333",
     "url-loader": "^1.1.2",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9"
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "@types/react-router-dom": "^4.3.1",
+    "@types/react": "^16.8.6",
+    "@types/react-dom": "^16.8.2",
+    "@babel/runtime": "^7.3.4",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-router-dom": "^4.3.1",
+    "react-select": "^2.3.0",
+    "react-svg-buttons": "^0.4.0"
   },
   "babel": {
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-transform-async-to-generator",
+      "@babel/plugin-transform-runtime"
+    ],
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-react"
+      "@babel/preset-react",
+      "@babel/preset-typescript"
     ]
   },
   "jest": {
+    "verbose": true,
     "setupFiles": [
       "./test/jestsetup.js"
     ],
